@@ -17,13 +17,14 @@ public class B implements Consumer<List<Chef>> {
      */
     @Override
     public void accept(List<Chef> chefs) {
+        chefs.sort(new ByStarsComparator());
     }
 
     public static class ByStarsComparator implements Comparator<Chef> {
 
         @Override
         public int compare(Chef chef1, Chef chef2) {
-            return 0;
+            return chef2.getStars() - chef1.getStars();
         }
     }
 }

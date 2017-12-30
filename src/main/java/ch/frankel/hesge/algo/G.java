@@ -12,6 +12,6 @@ public class G implements BiConsumer<Restaurant, List<Star>> {
      * Modifier le type générique de la signature de la méthode Restaurant.add(Collection<Chef>) pour que l'implémentation suivante compile.
      */
     public void accept(Restaurant restaurant, List<Star> stars) {
-        // restaurant.add(stars); // Décommenter pour vérifier
+        restaurant.add(stars); // Décommenter pour vérifier
     }
 }

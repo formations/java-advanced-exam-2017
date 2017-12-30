@@ -14,7 +14,14 @@ public class A implements UnaryOperator<Collection<Restaurant>> {
      */
     public Collection<Restaurant> apply(Collection<Restaurant> restaurants) {
         Collection<Restaurant> restaurantsWhichHaveLocalChefs = new ArrayList<>(); // DO NOT EDIT
-
+        for (Restaurant restaurant: restaurants) {
+            for (Chef chef : restaurant.getChefs()) {
+                if (chef.getCitizenship() == restaurant.getLocation().getCountry()) {
+                    restaurantsWhichHaveLocalChefs.add(restaurant);
+                    break;
+                }
+            }
+        }
         return restaurantsWhichHaveLocalChefs; // DO NOT EDIT
     }
 }

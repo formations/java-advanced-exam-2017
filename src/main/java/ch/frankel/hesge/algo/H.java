@@ -1,6 +1,7 @@
 package ch.frankel.hesge.algo;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 import java.util.function.BiFunction;
 
 public class H<T> implements BiFunction<T, T, Iterator<T>> {
@@ -26,7 +27,29 @@ public class H<T> implements BiFunction<T, T, Iterator<T>> {
 
         @Override
         public Iterator<T> iterator() {
-            return null;
+            return new Iterator<T>() {
+
+                private int cursor = 0;
+
+                @Override
+                public boolean hasNext() {
+                    return cursor == 0;
+                }
+
+                @Override
+                public T next() {
+                    switch (cursor) {
+                        case 0:
+                            cursor++;
+                            return t1;
+                        case 1:
+                            cursor++;
+                            return t2;
+                        default:
+                            throw new NoSuchElementException();
+                    }
+                }
+            };
         }
     }
 }

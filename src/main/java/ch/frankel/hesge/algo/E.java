@@ -3,6 +3,8 @@ package ch.frankel.hesge.algo;
 import ch.frankel.hesge.algo.model.Location;
 
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.function.UnaryOperator;
 
 public class E implements UnaryOperator<Collection<Location>> {
@@ -13,6 +15,6 @@ public class E implements UnaryOperator<Collection<Location>> {
      */
     @Override
     public Collection<Location> apply(Collection<Location> locations) {
-        return null;
+        return new HashSet<>(locations);
     }
 }

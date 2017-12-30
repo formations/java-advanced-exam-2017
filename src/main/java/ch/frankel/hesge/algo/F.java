@@ -12,5 +12,10 @@ public class F implements Consumer<Iterator<Chef>> {
      */
     @Override
     public void accept(Iterator<Chef> chefs) {
+        while (chefs.hasNext()) {
+            Chef chef = chefs.next();
+            int stars = chef.getStars();
+            chef.setStars(stars + 1);
+        }
     }
 }

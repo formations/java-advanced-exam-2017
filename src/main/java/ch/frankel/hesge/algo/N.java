@@ -5,6 +5,7 @@ import ch.frankel.hesge.algo.model.Restaurant;
 
 import java.util.Collection;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class N implements Function<Restaurant, Collection<Chef>> {
 
@@ -13,6 +14,6 @@ public class N implements Function<Restaurant, Collection<Chef>> {
      */
     @Override
     public Collection<Chef> apply(Restaurant restaurant) {
-        return null;
+        return restaurant.getChefs().stream().flatMap(chef -> chef.getCooks().stream()).collect(Collectors.toList());
     }
 }

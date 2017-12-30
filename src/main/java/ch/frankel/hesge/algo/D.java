@@ -16,7 +16,9 @@ public class D implements Function<Collection<Restaurant>, Map<Restaurant, Colle
     @Override
     public Map<Restaurant, Collection<Chef>> apply(Collection<Restaurant> restaurants) {
         Map<Restaurant, Collection<Chef>> chefsByRestaurant = new HashMap<>(); // DO NOT EDIT
-
+        for (Restaurant restaurant: restaurants) {
+            chefsByRestaurant.put(restaurant, restaurant.getChefs());
+        }
         return chefsByRestaurant; // DO NOT EDIT
     }
 }

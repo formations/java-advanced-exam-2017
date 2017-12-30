@@ -3,7 +3,7 @@ package ch.frankel.hesge.algo.model;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class Chef {
+public class Chef implements Comparable<Chef> {
 
     private final String firstName;
     private final String lastName;
@@ -48,5 +48,22 @@ public class Chef {
 
     public boolean remove(Chef chef) {
         return cooks.remove(chef);
+    }
+
+    @Override
+    public int compareTo(Chef o) {
+        int compareFirstName = o.firstName.compareTo(firstName);
+        if (compareFirstName != 0) {
+            return compareFirstName;
+        }
+        return o.lastName.compareTo(lastName);
+    }
+
+    @Override
+    public String toString() {
+        return "Chef{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
     }
 }

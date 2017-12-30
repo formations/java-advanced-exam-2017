@@ -4,6 +4,7 @@ import ch.frankel.hesge.algo.model.Location;
 
 import java.util.Collection;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class M implements Function<Stream<Location>, Collection<Location>> {
@@ -13,6 +14,6 @@ public class M implements Function<Stream<Location>, Collection<Location>> {
      */
     @Override
     public Collection<Location> apply(Stream<Location> locations) {
-        return null;
+        return locations.collect(Collectors.toSet());
     }
 }

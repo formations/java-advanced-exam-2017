@@ -37,7 +37,7 @@ public class Restaurant {
         return this.chefs.remove(chef);
     }
 
-    public void add(Collection<Chef> chefs) {
+    public void add(Collection<? extends Chef> chefs) {
         this.chefs.addAll(chefs);
     }
 

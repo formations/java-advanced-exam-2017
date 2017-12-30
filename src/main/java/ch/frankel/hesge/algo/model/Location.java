@@ -1,5 +1,7 @@
 package ch.frankel.hesge.algo.model;
 
+import java.util.Objects;
+
 public final class Location {
 
     private final double latitude;
@@ -28,5 +30,21 @@ public final class Location {
 
     public Country getCountry() {
         return country;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Location location = (Location) o;
+        return Double.compare(location.latitude, latitude) == 0 &&
+                Double.compare(location.longitude, longitude) == 0 &&
+                Objects.equals(city, location.city) &&
+                country == location.country;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(latitude, longitude, city, country);
     }
 }

@@ -1,5 +1,6 @@
 package ch.frankel.hesge.algo;
 
+import ch.frankel.hesge.algo.model.Chef;
 import ch.frankel.hesge.algo.model.Restaurant;
 
 import java.util.function.ToDoubleFunction;
@@ -11,6 +12,6 @@ public class O implements ToDoubleFunction<Restaurant> {
      */
     @Override
     public double applyAsDouble(Restaurant restaurant) {
-        return 0;
+        return restaurant.getChefs().stream().mapToDouble(Chef::getStars).average().getAsDouble();
     }
 }

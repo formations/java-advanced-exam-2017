@@ -1,5 +1,7 @@
 package ch.frankel.hesge.algo;
 
+import ch.frankel.hesge.algo.model.Chef;
+
 import java.util.Collection;
 
 public class I {
@@ -12,7 +14,7 @@ public class I {
      * - new I().accept(new HashSet<Restaurant>()) ==> doesn't compile
      * - new I().accept(new ArrayList<Star>()) ==> compile
      */
-    public void accept(Collection objects) {
+    public void accept(Collection<? extends Chef> objects) {
 
     }
 }
